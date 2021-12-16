@@ -42,6 +42,7 @@ fun MyApp() {
         color = Color(0xFF546E7A)
     ) {
         Column(
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CreateCircle()
