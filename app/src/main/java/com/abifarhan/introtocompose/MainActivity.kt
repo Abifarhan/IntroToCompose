@@ -1,8 +1,10 @@
 package com.abifarhan.introtocompose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
@@ -24,7 +26,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             IntroToComposeTheme {
                 // A surface container using the 'background' color from the theme
-                MyApp()
+//                MyApp()
+                CreateCircle()
             }
         }
     }
@@ -49,14 +52,18 @@ fun CreateCircle() {
     Card(
         modifier = Modifier
             .padding(3.dp)
-            .size(45.dp),
+            .size(45.dp)
+            .clickable {
+                Log.d("here we go", "CreateCircle: Tap")
+            },
         shape = CircleShape
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Text(text = "Tap", )
+            Text(text = "Tap", modifier = Modifier)
         }
     }
 }
+
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
