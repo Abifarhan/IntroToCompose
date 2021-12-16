@@ -26,8 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             IntroToComposeTheme {
                 // A surface container using the 'background' color from the theme
-//                MyApp()
-                CreateCircle()
+                MyApp()
             }
         }
     }
@@ -42,7 +41,7 @@ fun MyApp() {
             .fillMaxHeight(),
         color = Color(0xFF546E7A)
     ) {
-        Text(text = "Hello")
+        CreateCircle()
     }
 }
 
@@ -52,11 +51,12 @@ fun CreateCircle() {
     Card(
         modifier = Modifier
             .padding(3.dp)
-            .size(45.dp)
+            .size(150.dp)
             .clickable {
                 Log.d("here we go", "CreateCircle: Tap")
             },
-        shape = CircleShape
+        shape = CircleShape,
+        elevation = 4.dp
     ) {
         Box(contentAlignment = Alignment.Center) {
             Text(text = "Tap", modifier = Modifier)
