@@ -63,7 +63,15 @@ fun MyApp() {
 @Preview
 @Composable
 fun CreateCircle() {
-    var moneyCounter by remember {
+//    var moneyC = remember {
+//        mutableStateOf(0)
+//    }
+
+//    var moneyCounter by remember {
+//        mutableStateOf(0)
+//    }
+
+    var moneyCounter = remember {
         mutableStateOf(0)
     }
 
@@ -74,14 +82,14 @@ fun CreateCircle() {
             .padding(3.dp)
             .size(150.dp)
             .clickable {
-                moneyCounter += 1
+                moneyCounter.value += 1
                 Log.d(TAG, "CreateCircle : $moneyCounter")
             },
         shape = CircleShape,
         elevation = 4.dp
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Text(text = "Tap $moneyCounter", modifier = Modifier)
+            Text(text = "Tap ${moneyCounter.value}", modifier = Modifier)
         }
     }
 }
