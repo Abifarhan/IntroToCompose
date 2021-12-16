@@ -16,8 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.abifarhan.introtocompose.ui.theme.IntroToComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -45,8 +48,12 @@ fun MyApp() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "$100")
-            Spacer(modifier = Modifier.height(10.dp))
+            Text(text = "$100", style = TextStyle(
+                color = Color.White,
+                fontSize = 39.sp,
+                fontWeight = FontWeight.ExtraBold
+            ))
+            Spacer(modifier = Modifier.height(30.dp))
             CreateCircle()
         }
     }
