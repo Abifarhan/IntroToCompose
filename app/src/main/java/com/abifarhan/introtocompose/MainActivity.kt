@@ -66,7 +66,7 @@ fun MyApp() {
                 =
                 moneyCounter.value
             ) {
-                moneyCounter.value += 1
+                moneyCounter.value = it
             }
         }
     }
@@ -87,7 +87,7 @@ fun CreateCircle(moneyCounter: Int = 0, updateMoneyCounter: (Int) -> Unit) {
             .padding(3.dp)
             .size(150.dp)
             .clickable {
-                updateMoneyCounter(moneyCounter)
+                updateMoneyCounter(moneyCounter+1)
                 Log.d(TAG, "CreateCircle : $moneyCounter")
             },
         shape = CircleShape,
