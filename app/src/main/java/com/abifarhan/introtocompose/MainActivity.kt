@@ -39,6 +39,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
+    var moneyCounter = remember {
+        mutableStateOf(0)
+    }
+
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -62,7 +66,7 @@ fun MyApp() {
 
 @Preview
 @Composable
-fun CreateCircle() {
+fun CreateCircle(moneyCounter: Int= 0) {
 //    var moneyC = remember {
 //        mutableStateOf(0)
 //    }
@@ -70,26 +74,19 @@ fun CreateCircle() {
 //    var moneyCounter by remember {
 //        mutableStateOf(0)
 //    }
-
-    var moneyCounter = remember {
-        mutableStateOf(0)
-    }
-
-
-
     Card(
         modifier = Modifier
             .padding(3.dp)
             .size(150.dp)
             .clickable {
-                moneyCounter.value += 1
+//                moneyCounter.value += 1
                 Log.d(TAG, "CreateCircle : $moneyCounter")
             },
         shape = CircleShape,
         elevation = 4.dp
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Text(text = "Tap ${moneyCounter.value}", modifier = Modifier)
+            Text(text = "Tap $moneyCounter", modifier = Modifier)
         }
     }
 }
