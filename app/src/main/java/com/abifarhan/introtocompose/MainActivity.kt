@@ -53,20 +53,28 @@ fun MyApp() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "$100", style = TextStyle(
-                color = Color.White,
-                fontSize = 39.sp,
-                fontWeight = FontWeight.ExtraBold
-            ))
+            Text(
+                text = "${moneyCounter.value}", style = TextStyle(
+                    color = Color.White,
+                    fontSize = 39.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+            )
             Spacer(modifier = Modifier.height(30.dp))
-            CreateCircle()
+            CreateCircle(
+                moneyCounter
+                =
+                moneyCounter.value
+            ) {
+                moneyCounter.value += 1
+            }
         }
     }
 }
 
-@Preview
+//@Preview
 @Composable
-fun CreateCircle(moneyCounter: Int= 0) {
+fun CreateCircle(moneyCounter: Int = 0, updateMoneyCounter: (Int) -> Unit) {
 //    var moneyC = remember {
 //        mutableStateOf(0)
 //    }
@@ -79,7 +87,7 @@ fun CreateCircle(moneyCounter: Int= 0) {
             .padding(3.dp)
             .size(150.dp)
             .clickable {
-//                moneyCounter.value += 1
+                updateMoneyCounter(moneyCounter)
                 Log.d(TAG, "CreateCircle : $moneyCounter")
             },
         shape = CircleShape,
