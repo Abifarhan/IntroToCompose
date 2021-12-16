@@ -41,7 +41,9 @@ fun MyApp() {
             .fillMaxHeight(),
         color = Color(0xFF546E7A)
     ) {
-        CreateCircle()
+        Column() {
+            CreateCircle()
+        }
     }
 }
 
